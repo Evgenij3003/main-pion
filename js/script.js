@@ -981,7 +981,7 @@ function setAttributeNameButton(attributeName) {
 if (document.querySelector(".nav-schedule")) {
     const scheduleBody = document.querySelector(".nav-schedule__body");
     const dateButtons = document.querySelectorAll(".nav-schedule__date");
-    var lineActive = document.getElementById(".schedule-line");
+    var lineActive = document.getElementById("schedule-line");
     var currentButton = document.querySelector(".nav-schedule__date.current-date");
     var activeButton = document.querySelector(".nav-schedule__date.active");
     var firstDate = document.querySelector(".first-date");
