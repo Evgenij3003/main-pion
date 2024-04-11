@@ -981,7 +981,7 @@ function setAttributeNameButton(attributeName) {
 if (document.querySelector(".nav-schedule")) {
     const scheduleBody = document.querySelector(".nav-schedule__body");
     const dateButtons = document.querySelectorAll(".nav-schedule__date");
-    var lineActive = document.querySelector(".nav-schedule__line");
+    var lineActive = document.getElementById(".schedule-line");
     var currentButton = document.querySelector(".nav-schedule__date.current-date");
     var activeButton = document.querySelector(".nav-schedule__date.active");
     var firstDate = document.querySelector(".first-date");
@@ -1025,7 +1025,7 @@ if (document.querySelector(".nav-schedule")) {
     function setPositionLine(activeButton, scroll = false) {
         let addValue = window.innerWidth > 1023.98 ? 6 : 7;
         // `${(activeButton.offsetLeft + addValue) / 16}rem`;
-        lineActive.setProperty("left", "70px");
+        lineActive.style.left = `${(leftPosition + addValue) / 16}rem`;
     }
 
 
