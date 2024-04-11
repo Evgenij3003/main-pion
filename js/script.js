@@ -1047,13 +1047,13 @@ if (document.querySelector(".nav-schedule")) {
 
     // Функция расчета положения элементов месяцев:
     function setPositionMonths() {
-        // var monthBlock = document.querySelector(".nav-schedule__month");
-        // var monthElements = document.querySelectorAll(".nav-schedule__month span");
-        // monthBlock.style.width = `${(firstDatePosition - 20) / 16}rem`;
+        var monthBlock = document.querySelector(".nav-schedule__month");
+        var monthElements = document.querySelectorAll(".nav-schedule__month span");
+        monthBlock.style.width = `${(firstDatePosition - 20) / 16}rem`;
 
-        // monthElements.forEach(monthElement => {
-        //     monthElement.style.left = `${leftPosition / 16}rem`;
-        // });
+        monthElements.forEach(monthElement => {
+            monthElement.style.left = `${leftPosition / 16}rem`;
+        });
     }
 }
 
