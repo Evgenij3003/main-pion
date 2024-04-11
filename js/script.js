@@ -1109,7 +1109,7 @@ function initSliders() {
     // Slider Main:
     if (document.querySelector(".slider-main")) {
         const timeout = 1200;
-        let slides;
+        var slides;
         let sliderMain = new Swiper(".slider-main", {
             autoplay: { 
                 delay: 5000,		
