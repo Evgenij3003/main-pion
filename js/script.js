@@ -981,7 +981,7 @@ function setAttributeNameButton(attributeName) {
 if (document.querySelector(".nav-schedule")) {
     const scheduleBody = document.querySelector(".nav-schedule__body");
     const dateButtons = document.querySelectorAll(".nav-schedule__date");
-    let lineActive = document.getElementById("schedule-line");
+    var lineActive = document.getElementById("schedule-line");
     let currentButton = document.querySelector(".nav-schedule__date.current-date");
     let activeButton = document.querySelector(".nav-schedule__date.active");
     let firstDate = document.querySelector(".first-date");
@@ -1105,8 +1105,8 @@ function initSliders() {
 
     // Slider Main:
     if (document.querySelector(".slider-main")) {
-        let timeout = 1200;
-        let slides;
+        var timeout = 1200;
+        var slides;
         let sliderMain = new Swiper(".slider-main", {
             autoplay: { 
                 delay: 5000,		
