@@ -1024,7 +1024,8 @@ if (document.querySelector(".nav-schedule")) {
     // Функция расчета позиции линии "активной" даты:
     function setPositionLine(activeButton, scroll = false) {
         var addValue = window.innerWidth > 1023.98 ? 6 : 7;
-        lineActive.style.left = `${(activeButton.offsetLeft + addValue) / 16}rem`;
+        leftPosition = activeButton.offsetLeft;
+        lineActive.style.left = `${(leftPosition + addValue) / 16}rem`;
     }
 
 
