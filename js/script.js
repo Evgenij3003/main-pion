@@ -977,34 +977,35 @@ function setAttributeNameButton(attributeName) {
 }
 
 
-// // Расстановка месяцев и расчет положения линии "активной" даты:
-// if (document.querySelector(".nav-schedule")) {
-//     const scheduleBody = document.querySelector(".nav-schedule__body");
-//     const dateButtons = document.querySelectorAll(".nav-schedule__date");
-//     const lineActive = document.querySelector(".nav-schedule__line");
-//     let currentButton = document.querySelector(".nav-schedule__date.current-date");
-//     let activeButton = document.querySelector(".nav-schedule__date.active");
-//     const firstDate = document.querySelector(".first-date");
-//     let months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
-//     let currentMonth = new Date().getMonth();
-//     let firstDatePosition = firstDate.offsetLeft;
-//     let leftPosition;
+// Расстановка месяцев и расчет положения линии "активной" даты:
+if (document.querySelector(".nav-schedule")) {
+    const scheduleBody = document.querySelector(".nav-schedule__body");
+    const dateButtons = document.querySelectorAll(".nav-schedule__date");
+    const lineActive = document.querySelector(".nav-schedule__line");
+    let currentButton = document.querySelector(".nav-schedule__date.current-date");
+    let activeButton = document.querySelector(".nav-schedule__date.active");
+    const firstDate = document.querySelector(".first-date");
+    let months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+    let currentMonth = new Date().getMonth();
+    let firstDatePosition = firstDate.offsetLeft;
+    let leftPosition;
 
-//     dateButtons.forEach(dateButton => {
-//         dateButton.addEventListener("click", function(e) {
-//             if (e.target.closest(".dragging")) {
-//                 e.preventDefault();
-//                 return false;
-//             } else {
-//                 toggleActiveButton(e);
-//             }
-//         });
-//     });
+    dateButtons.forEach(dateButton => {
+        dateButton.addEventListener("click", function(e) {
+            if (e.target.closest(".dragging")) {
+                e.preventDefault();
+                return false;
+            } else {
+                toggleActiveButton(e);
+            }
+        });
+    });
 
-//     window.innerWidth > 1200 ? getShadowOnMovieList() : null;
-//     setPositionLine(activeButton);
-//     setMonths();
-//     setPositionMonths();
+    window.innerWidth > 1200 ? getShadowOnMovieList() : null;
+    setPositionLine(activeButton);
+    setMonths();
+    setPositionMonths();
+}
 
 //     // Функция переключения состояния кнопки выбора даты:
 //     function toggleActiveButton(e) {
