@@ -1025,7 +1025,7 @@ if (document.querySelector(".nav-schedule")) {
     function setPositionLine(activeButton, scroll = false) {
         let addValue = window.innerWidth > 1023.98 ? 6 : 7;
         leftPosition = activeButton.offsetLeft + addValue;
-        // scroll ? lineActive.style.transitionDuration = "0s" : lineActive.style.transitionDuration = "0.3s";
+        scroll ? lineActive.style.transitionDuration = "0s" : lineActive.style.transitionDuration = "0.3s";
         // lineActive.style.left = leftPosition + "px";
     }
 
