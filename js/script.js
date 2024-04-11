@@ -956,124 +956,124 @@ new Popup({});
 /* Schedule Navigation */
 
 // Задание атрибута навигации расписания фильма на страницах "Карточка фильма":
-if (document.querySelector(".page-film")) {
-    const filmTitle = document.querySelector("[data-film-title]").innerText.replaceAll(" ", "");
-    setAttributeNameButton(filmTitle);
-}
-if (document.querySelector(".page-event-some")) {
-    const eventTitle = document.querySelector("[data-event-title]").getAttribute("data-event-title");
-    setAttributeNameButton(eventTitle);
-}
-if (document.querySelector(".page-main")) {
-    setAttributeNameButton("all");
-}
+// if (document.querySelector(".page-film")) {
+//     const filmTitle = document.querySelector("[data-film-title]").innerText.replaceAll(" ", "");
+//     setAttributeNameButton(filmTitle);
+// }
+// if (document.querySelector(".page-event-some")) {
+//     const eventTitle = document.querySelector("[data-event-title]").getAttribute("data-event-title");
+//     setAttributeNameButton(eventTitle);
+// }
+// if (document.querySelector(".page-main")) {
+//     setAttributeNameButton("all");
+// }
 
 
-function setAttributeNameButton(attributeName) {
-    const scheduleButtons = document.querySelectorAll(".nav-schedule__date");
-    scheduleButtons.forEach(scheduleButton => {
-        scheduleButton.setAttribute("data-nav", attributeName);
-    });
-}
+// function setAttributeNameButton(attributeName) {
+//     const scheduleButtons = document.querySelectorAll(".nav-schedule__date");
+//     scheduleButtons.forEach(scheduleButton => {
+//         scheduleButton.setAttribute("data-nav", attributeName);
+//     });
+// }
 
 
-// Расстановка месяцев и расчет положения линии "активной" даты:
-if (document.querySelector(".nav-schedule")) {
-    const scheduleBody = document.querySelector(".nav-schedule__body");
-    const dateButtons = document.querySelectorAll(".nav-schedule__date");
-    const lineActive = document.querySelector(".nav-schedule__line");
-    let currentButton = document.querySelector(".nav-schedule__date.current-date");
-    let activeButton = document.querySelector(".nav-schedule__date.active");
-    const firstDate = document.querySelector(".first-date");
-    let months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
-    let currentMonth = new Date().getMonth();
-    let firstDatePosition = firstDate.offsetLeft;
-    let leftPosition;
+// // Расстановка месяцев и расчет положения линии "активной" даты:
+// if (document.querySelector(".nav-schedule")) {
+//     const scheduleBody = document.querySelector(".nav-schedule__body");
+//     const dateButtons = document.querySelectorAll(".nav-schedule__date");
+//     const lineActive = document.querySelector(".nav-schedule__line");
+//     let currentButton = document.querySelector(".nav-schedule__date.current-date");
+//     let activeButton = document.querySelector(".nav-schedule__date.active");
+//     const firstDate = document.querySelector(".first-date");
+//     let months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+//     let currentMonth = new Date().getMonth();
+//     let firstDatePosition = firstDate.offsetLeft;
+//     let leftPosition;
 
-    dateButtons.forEach(dateButton => {
-        dateButton.addEventListener("click", function(e) {
-            if (e.target.closest(".dragging")) {
-                e.preventDefault();
-                return false;
-            } else {
-                toggleActiveButton(e);
-            }
-        });
-    });
+//     dateButtons.forEach(dateButton => {
+//         dateButton.addEventListener("click", function(e) {
+//             if (e.target.closest(".dragging")) {
+//                 e.preventDefault();
+//                 return false;
+//             } else {
+//                 toggleActiveButton(e);
+//             }
+//         });
+//     });
 
-    window.innerWidth > 1200 ? getShadowOnMovieList() : null;
-    setPositionLine(activeButton);
-    setMonths();
-    setPositionMonths();
+//     window.innerWidth > 1200 ? getShadowOnMovieList() : null;
+//     setPositionLine(activeButton);
+//     setMonths();
+//     setPositionMonths();
 
-    // Функция переключения состояния кнопки выбора даты:
-    function toggleActiveButton(e) {
-        const targetElement = e.currentTarget;
-        if (!targetElement.classList.contains("active")) {
-            activeButton = document.querySelector(".nav-schedule__date.active");
-            activeButton.classList.remove("active");
-            targetElement.classList.add("active");
-            // if (!targetElement.classList.contains("current-date")) {
-            //     lineActive.classList.add("no-active");
-            // } else {
-            //     lineActive.classList.remove("no-active");
-            // }
-            // setPositionLine(targetElement, false);
-        }
-    }
+//     // Функция переключения состояния кнопки выбора даты:
+//     function toggleActiveButton(e) {
+//         const targetElement = e.currentTarget;
+//         if (!targetElement.classList.contains("active")) {
+//             activeButton = document.querySelector(".nav-schedule__date.active");
+//             activeButton.classList.remove("active");
+//             targetElement.classList.add("active");
+//             // if (!targetElement.classList.contains("current-date")) {
+//             //     lineActive.classList.add("no-active");
+//             // } else {
+//             //     lineActive.classList.remove("no-active");
+//             // }
+//             // setPositionLine(targetElement, false);
+//         }
+//     }
 
-    scheduleBody.addEventListener("scroll", function(e) {
-        setPositionLine(currentButton, true);
-    });
-
-
-    // Функция расчета позиции линии "активной" даты:
-    function setPositionLine(activeButton, scroll = false) {
-        leftPosition = activeButton.offsetLeft;
-        let addValue = window.innerWidth > 1023.98 ? 6 : 7;
-        scroll ? lineActive.style.transitionDuration = "0s" : lineActive.style.transitionDuration = "0.3s";
-        lineActive.style.left = `${(leftPosition + addValue) / 16}rem`;
-    }
+//     scheduleBody.addEventListener("scroll", function(e) {
+//         setPositionLine(currentButton, true);
+//     });
 
 
-    // Функция построения разметки HTML элементов месяцев:
-    function setMonths() {
-        const scheduleBody = document.querySelector(".nav-schedule__body");
-        let monthsInnerHTML = [];
-        months.forEach((month, index) => {
-            if (index == currentMonth || index - 1 == currentMonth) {
-                const scheduleItem = `
-                    <div class="nav-schedule__month">
-                        <span>${month}</span>
-                    </div>
-                `;
-                monthsInnerHTML.push(scheduleItem);
-            }
-        });
-        scheduleBody.insertAdjacentHTML("afterbegin", monthsInnerHTML.join(""));
-    }
+//     // Функция расчета позиции линии "активной" даты:
+//     function setPositionLine(activeButton, scroll = false) {
+//         leftPosition = activeButton.offsetLeft;
+//         let addValue = window.innerWidth > 1023.98 ? 6 : 7;
+//         scroll ? lineActive.style.transitionDuration = "0s" : lineActive.style.transitionDuration = "0.3s";
+//         lineActive.style.left = `${(leftPosition + addValue) / 16}rem`;
+//     }
 
 
-    // Функция расчета положения элементов месяцев:
-    function setPositionMonths() {
-        const monthBlock = document.querySelector(".nav-schedule__month");
-        const monthElements = document.querySelectorAll(".nav-schedule__month span");
-        monthBlock.style.width = `${(firstDatePosition - 20) / 16}rem`;
+//     // Функция построения разметки HTML элементов месяцев:
+//     function setMonths() {
+//         const scheduleBody = document.querySelector(".nav-schedule__body");
+//         let monthsInnerHTML = [];
+//         months.forEach((month, index) => {
+//             if (index == currentMonth || index - 1 == currentMonth) {
+//                 const scheduleItem = `
+//                     <div class="nav-schedule__month">
+//                         <span>${month}</span>
+//                     </div>
+//                 `;
+//                 monthsInnerHTML.push(scheduleItem);
+//             }
+//         });
+//         scheduleBody.insertAdjacentHTML("afterbegin", monthsInnerHTML.join(""));
+//     }
 
-        monthElements.forEach(monthElement => {
-            monthElement.style.left = `${leftPosition / 16}rem`;
-        });
-    }
+
+//     // Функция расчета положения элементов месяцев:
+//     function setPositionMonths() {
+//         const monthBlock = document.querySelector(".nav-schedule__month");
+//         const monthElements = document.querySelectorAll(".nav-schedule__month span");
+//         monthBlock.style.width = `${(firstDatePosition - 20) / 16}rem`;
+
+//         monthElements.forEach(monthElement => {
+//             monthElement.style.left = `${leftPosition / 16}rem`;
+//         });
+//     }
 
 
-    window.addEventListener("orientationchange", function() {
-        // Расчет позиции "активной" линии при смене ориентации экрана на window:
-        setPositionLine(currentButton, false);
+//     window.addEventListener("orientationchange", function() {
+//         // Расчет позиции "активной" линии при смене ориентации экрана на window:
+//         setPositionLine(currentButton, false);
 
-        // Расчет положения элементов месяцев:
-        setPositionMonths();
-    })
-}
+//         // Расчет положения элементов месяцев:
+//         setPositionMonths();
+//     })
+// }
 
 
 
