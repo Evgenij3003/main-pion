@@ -990,21 +990,21 @@ if (document.querySelector(".nav-schedule")) {
     let firstDatePosition = firstDate.offsetLeft;
     let leftPosition;
 
-    dateButtons.forEach(dateButton => {
-        dateButton.addEventListener("click", function(e) {
-            if (e.target.closest(".dragging")) {
-                e.preventDefault();
-                return false;
-            } else {
-                toggleActiveButton(e);
-            }
-        });
-    });
+    // dateButtons.forEach(dateButton => {
+    //     dateButton.addEventListener("click", function(e) {
+    //         if (e.target.closest(".dragging")) {
+    //             e.preventDefault();
+    //             return false;
+    //         } else {
+    //             toggleActiveButton(e);
+    //         }
+    //     });
+    // });
 
-    window.innerWidth > 1200 ? getShadowOnMovieList() : null;
-    setPositionLine(activeButton);
-    setMonths();
-    setPositionMonths();
+    // window.innerWidth > 1200 ? getShadowOnMovieList() : null;
+    // setPositionLine(activeButton);
+    // setMonths();
+    // setPositionMonths();
 }
 
 //     // Функция переключения состояния кнопки выбора даты:
