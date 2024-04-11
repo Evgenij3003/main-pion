@@ -979,7 +979,7 @@ function setAttributeNameButton(attributeName) {
 
 // Расстановка месяцев и расчет положения линии "активной" даты:
 if (document.querySelector(".nav-schedule")) {
-    const scheduleBody = document.querySelector(".nav-schedule__body");
+    var scheduleBody = document.querySelector(".nav-schedule__body");
     const dateButtons = document.querySelectorAll(".nav-schedule__date");
     var lineActive = document.getElementById("schedule-line");
     var currentButton = document.querySelector(".nav-schedule__date.current-date");
@@ -1030,18 +1030,18 @@ if (document.querySelector(".nav-schedule")) {
 
     // Функция построения разметки HTML элементов месяцев:
     function setMonths() {
-        // var monthsInnerHTML = [];
-        // months.forEach((month, index) => {
-        //     if (index == currentMonth || (index - 1 == currentMonth)) {
-        //         var scheduleItem = `
-        //             <div class="nav-schedule__month">
-        //                 <span>${month}</span>
-        //             </div>
-        //         `;
-        //         monthsInnerHTML.push(scheduleItem);
-        //     }
-        // });
-        // scheduleBody.insertAdjacentHTML("afterbegin", monthsInnerHTML.join(""));
+        var monthsInnerHTML = [];
+        months.forEach((month, index) => {
+            if (index == currentMonth || (index - 1 == currentMonth)) {
+                var scheduleItem = `
+                    <div class="nav-schedule__month">
+                        <span>${month}</span>
+                    </div>
+                `;
+                monthsInnerHTML.push(scheduleItem);
+            }
+        });
+        scheduleBody.insertAdjacentHTML("afterbegin", monthsInnerHTML.join(""));
     }
 
 
