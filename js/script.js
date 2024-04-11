@@ -956,25 +956,25 @@ new Popup({});
 /* Schedule Navigation */
 
 // Задание атрибута навигации расписания фильма на страницах "Карточка фильма":
-// if (document.querySelector(".page-film")) {
-//     const filmTitle = document.querySelector("[data-film-title]").innerText.replaceAll(" ", "");
-//     setAttributeNameButton(filmTitle);
-// }
-// if (document.querySelector(".page-event-some")) {
-//     const eventTitle = document.querySelector("[data-event-title]").getAttribute("data-event-title");
-//     setAttributeNameButton(eventTitle);
-// }
-// if (document.querySelector(".page-main")) {
-//     setAttributeNameButton("all");
-// }
+if (document.querySelector(".page-film")) {
+    const filmTitle = document.querySelector("[data-film-title]").innerText.replaceAll(" ", "");
+    setAttributeNameButton(filmTitle);
+}
+if (document.querySelector(".page-event-some")) {
+    const eventTitle = document.querySelector("[data-event-title]").getAttribute("data-event-title");
+    setAttributeNameButton(eventTitle);
+}
+if (document.querySelector(".page-main")) {
+    setAttributeNameButton("all");
+}
 
 
-// function setAttributeNameButton(attributeName) {
-//     const scheduleButtons = document.querySelectorAll(".nav-schedule__date");
-//     scheduleButtons.forEach(scheduleButton => {
-//         scheduleButton.setAttribute("data-nav", attributeName);
-//     });
-// }
+function setAttributeNameButton(attributeName) {
+    const scheduleButtons = document.querySelectorAll(".nav-schedule__date");
+    scheduleButtons.forEach(scheduleButton => {
+        scheduleButton.setAttribute("data-nav", attributeName);
+    });
+}
 
 
 // // Расстановка месяцев и расчет положения линии "активной" даты:
