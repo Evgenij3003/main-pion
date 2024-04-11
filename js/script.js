@@ -981,13 +981,13 @@ function setAttributeNameButton(attributeName) {
 if (document.querySelector(".nav-schedule")) {
     const scheduleBody = document.querySelector(".nav-schedule__body");
     const dateButtons = document.querySelectorAll(".nav-schedule__date");
-    let lineActive = document.querySelector(".nav-schedule__line");
-    let currentButton = document.querySelector(".nav-schedule__date.current-date");
-    let activeButton = document.querySelector(".nav-schedule__date.active");
-    let firstDate = document.querySelector(".first-date");
-    let months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
-    let currentMonth = new Date().getMonth();
-    let firstDatePosition = firstDate.offsetLeft;
+    var lineActive = document.querySelector(".nav-schedule__line");
+    var currentButton = document.querySelector(".nav-schedule__date.current-date");
+    var activeButton = document.querySelector(".nav-schedule__date.active");
+    var firstDate = document.querySelector(".first-date");
+    var months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+    var currentMonth = new Date().getMonth();
+    var firstDatePosition = firstDate.offsetLeft;
     var leftPosition;
 
     dateButtons.forEach(dateButton => {
@@ -1024,7 +1024,7 @@ if (document.querySelector(".nav-schedule")) {
     // Функция расчета позиции линии "активной" даты:
     function setPositionLine(activeButton, scroll = false) {
         let addValue = window.innerWidth > 1023.98 ? 6 : 7;
-        lineActive.style.left = 5;
+        // lineActive.style.left = 5;
         // lineActive.style.left = `${(activeButton.offsetLeft + addValue) / 16}rem`;
     }
 
