@@ -981,14 +981,14 @@ function setAttributeNameButton(attributeName) {
 if (document.querySelector(".nav-schedule")) {
     const scheduleBody = document.querySelector(".nav-schedule__body");
     const dateButtons = document.querySelectorAll(".nav-schedule__date");
-    var lineActive = document.getElementById("schedule-line");
-    var currentButton = document.querySelector(".nav-schedule__date.current-date");
-    var activeButton = document.querySelector(".nav-schedule__date.active");
-    var firstDate = document.querySelector(".first-date");
-    var months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
-    var currentMonth = new Date().getMonth();
-    var firstDatePosition = firstDate.offsetLeft;
-    var leftPosition;
+    let lineActive = document.getElementById("schedule-line");
+    let currentButton = document.querySelector(".nav-schedule__date.current-date");
+    let activeButton = document.querySelector(".nav-schedule__date.active");
+    let firstDate = document.querySelector(".first-date");
+    let months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+    let currentMonth = new Date().getMonth();
+    let firstDatePosition = firstDate.offsetLeft;
+    let leftPosition;
 
     dateButtons.forEach(dateButton => {
         dateButton.addEventListener("click", function(e) {
@@ -1024,8 +1024,7 @@ if (document.querySelector(".nav-schedule")) {
     // Функция расчета позиции линии "активной" даты:
     function setPositionLine(activeButton, scroll = false) {
         let addValue = window.innerWidth > 1023.98 ? 6 : 7;
-        // `${(activeButton.offsetLeft + addValue) / 16}rem`;
-        lineActive.style.left = `${(leftPosition + addValue) / 16}rem`;
+        lineActive.style.left = `${(activeButton.offsetLeft + addValue) / 16}rem`;
     }
 
 
@@ -1106,8 +1105,8 @@ function initSliders() {
 
     // Slider Main:
     if (document.querySelector(".slider-main")) {
-        var timeout = 1200;
-        var slides;
+        let timeout = 1200;
+        let slides;
         let sliderMain = new Swiper(".slider-main", {
             autoplay: { 
                 delay: 5000,		
