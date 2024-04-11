@@ -1030,18 +1030,18 @@ if (document.querySelector(".nav-schedule")) {
 
     // Функция построения разметки HTML элементов месяцев:
     function setMonths() {
-        var monthsInnerHTML = [];
-        months.forEach((month, index) => {
-            if (index == currentMonth || index - 1 == currentMonth) {
-                var scheduleItem = `
-                    <div class="nav-schedule__month">
-                        <span>${month}</span>
-                    </div>
-                `;
-                monthsInnerHTML.push(scheduleItem);
-            }
-        });
-        scheduleBody.insertAdjacentHTML("afterbegin", monthsInnerHTML.join(""));
+        // var monthsInnerHTML = [];
+        // months.forEach((month, index) => {
+        //     if (index == currentMonth || (index - 1 == currentMonth)) {
+        //         var scheduleItem = `
+        //             <div class="nav-schedule__month">
+        //                 <span>${month}</span>
+        //             </div>
+        //         `;
+        //         monthsInnerHTML.push(scheduleItem);
+        //     }
+        // });
+        // scheduleBody.insertAdjacentHTML("afterbegin", monthsInnerHTML.join(""));
     }
 
 
