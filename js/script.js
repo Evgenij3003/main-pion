@@ -981,7 +981,7 @@ function setAttributeNameButton(attributeName) {
 if (document.querySelector(".nav-schedule")) {
     const scheduleBody = document.querySelector(".nav-schedule__body");
     const dateButtons = document.querySelectorAll(".nav-schedule__date");
-    var lineActive = document.getElementById("schedule-line");
+    let lineActive = document.getElementById("schedule-line");
     let currentButton = document.querySelector(".nav-schedule__date.current-date");
     let activeButton = document.querySelector(".nav-schedule__date.active");
     let firstDate = document.querySelector(".first-date");
@@ -1030,31 +1030,31 @@ if (document.querySelector(".nav-schedule")) {
 
     // Функция построения разметки HTML элементов месяцев:
     function setMonths() {
-        // const scheduleBody = document.querySelector(".nav-schedule__body");
-        // let monthsInnerHTML = [];
-        // months.forEach((month, index) => {
-        //     if (index == currentMonth || index - 1 == currentMonth) {
-        //         const scheduleItem = `
-        //             <div class="nav-schedule__month">
-        //                 <span>${month}</span>
-        //             </div>
-        //         `;
-        //         monthsInnerHTML.push(scheduleItem);
-        //     }
-        // });
-        // scheduleBody.insertAdjacentHTML("afterbegin", monthsInnerHTML.join(""));
+        const scheduleBody = document.querySelector(".nav-schedule__body");
+        let monthsInnerHTML = [];
+        months.forEach((month, index) => {
+            if (index == currentMonth || index - 1 == currentMonth) {
+                const scheduleItem = `
+                    <div class="nav-schedule__month">
+                        <span>${month}</span>
+                    </div>
+                `;
+                monthsInnerHTML.push(scheduleItem);
+            }
+        });
+        scheduleBody.insertAdjacentHTML("afterbegin", monthsInnerHTML.join(""));
     }
 
 
     // Функция расчета положения элементов месяцев:
     function setPositionMonths() {
-        // const monthBlock = document.querySelector(".nav-schedule__month");
-        // const monthElements = document.querySelectorAll(".nav-schedule__month span");
-        // monthBlock.style.width = `${(firstDatePosition - 20) / 16}rem`;
+        const monthBlock = document.querySelector(".nav-schedule__month");
+        const monthElements = document.querySelectorAll(".nav-schedule__month span");
+        monthBlock.style.width = `${(firstDatePosition - 20) / 16}rem`;
 
-        // monthElements.forEach(monthElement => {
-        //     monthElement.style.left = `${leftPosition / 16}rem`;
-        // });
+        monthElements.forEach(monthElement => {
+            monthElement.style.left = `${leftPosition / 16}rem`;
+        });
     }
 }
 
