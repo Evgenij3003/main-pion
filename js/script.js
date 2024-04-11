@@ -1001,8 +1001,7 @@ if (document.querySelector(".nav-schedule")) {
         });
     });
 
-    window.innerWidth > 1200 ? getShadowOnMovieList() : null;
-    setPositionLine(activeButton);
+    setPositionLine(activeButton, false);
     setMonths();
     setPositionMonths();
 
@@ -1075,36 +1074,11 @@ if (document.querySelector(".nav-schedule")) {
 /*==========================================================================================================================================================================*/
 /* Событие смены ориентации окна */
 window.addEventListener("orientationchange", function() {
-    // Управление состоянием "тени" в списках расписания сеансов:
-    window.innerWidth > 1200 ? getShadowOnMovieList() : getShadowOnMovieList(false);
-
     // Вычисление высот элементов формы "Аренда":
     if (document.querySelector(".rent-hall") && window.innerWidth < 479.98) {
         getHeightElements();
     }
 })
-
-
-
-/*==========================================================================================================================================================================*/
-/* Shadow Toggle On Times Movie */
-
-// Функция управления состоянием "тени" в списках расписания сеансов:
-function getShadowOnMovieList(shadowOn = true) {
-    if (shadowOn) {
-        const timesMovieLists = document.querySelectorAll(".times-movie__list");
-        timesMovieLists.forEach(timesMovieList => {
-            if (timesMovieList.children.length > 5) {
-                timesMovieList.closest(".movie").classList.add("shadow-on");
-            }
-        });
-    } else {
-        const shadowBlocks = document.querySelectorAll(".shadow-on");
-        shadowBlocks?.forEach(shadowBlock => {
-            shadowBlock.classList.remove("shadow-on");
-        });
-    }
-}
 
 
 
