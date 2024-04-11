@@ -981,10 +981,10 @@ function setAttributeNameButton(attributeName) {
 if (document.querySelector(".nav-schedule")) {
     const scheduleBody = document.querySelector(".nav-schedule__body");
     const dateButtons = document.querySelectorAll(".nav-schedule__date");
-    const lineActive = document.querySelector(".nav-schedule__line");
+    let lineActive = document.querySelector(".nav-schedule__line");
     let currentButton = document.querySelector(".nav-schedule__date.current-date");
     let activeButton = document.querySelector(".nav-schedule__date.active");
-    const firstDate = document.querySelector(".first-date");
+    let firstDate = document.querySelector(".first-date");
     let months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
     let currentMonth = new Date().getMonth();
     let firstDatePosition = firstDate.offsetLeft;
@@ -1023,11 +1023,10 @@ if (document.querySelector(".nav-schedule")) {
 
     // Функция расчета позиции линии "активной" даты:
     function setPositionLine(activeButton, scroll = false) {
-        leftPosition = activeButton.offsetLeft;
         let addValue = window.innerWidth > 1023.98 ? 6 : 7;
+        leftPosition = activeButton.offsetLeft + addValue;
         // scroll ? lineActive.style.transitionDuration = "0s" : lineActive.style.transitionDuration = "0.3s";
-        leftPosition = leftPosition + addValue;
-        lineActive.style.left = leftPosition + "px";
+        // lineActive.style.left = leftPosition + "px";
     }
 
 
@@ -1108,7 +1107,7 @@ function initSliders() {
 
     // Slider Main:
     if (document.querySelector(".slider-main")) {
-        const timeout = 1200;
+        var timeout = 1200;
         var slides;
         let sliderMain = new Swiper(".slider-main", {
             autoplay: { 
