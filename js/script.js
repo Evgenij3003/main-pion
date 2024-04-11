@@ -1023,10 +1023,10 @@ if (document.querySelector(".nav-schedule")) {
 
     // Функция расчета позиции линии "активной" даты:
     function setPositionLine(activeButton, scroll = false) {
-        // leftPosition = activeButton.offsetLeft;
-        // let addValue = window.innerWidth > 1023.98 ? 6 : 7;
-        // scroll ? lineActive.style.transitionDuration = "0s" : lineActive.style.transitionDuration = "0.3s";
-        // lineActive.style.left = `${(leftPosition + addValue) / 16}rem`;
+        leftPosition = activeButton.offsetLeft;
+        let addValue = window.innerWidth > 1023.98 ? 6 : 7;
+        scroll ? lineActive.style.transitionDuration = "0s" : lineActive.style.transitionDuration = "0.3s";
+        lineActive.style.left = `${(leftPosition + addValue) / 16}rem`;
     }
 
 
